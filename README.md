@@ -1,5 +1,6 @@
 # 🏥 Healthcare Patient-Support Chatbot (CURALINK)
 **LIVE LINK: https://clinical-bot-frontend.onrender.com **
+
 A premium, two-service clinical assistant and patient-monitoring portal. It provides real-time patient support via a Retrieval-Augmented Generation (RAG) chatbot, clinical safety classification, and automated alert escalation to doctors when risk is detected.
 
 ---
