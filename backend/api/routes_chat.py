@@ -99,6 +99,7 @@ async def chat(
 
         if not x_groq_key:
             raise HTTPException(status_code=400, detail="API keys not configured")
+        print(f"[Chat Headers] resend={x_resend_key}, twilio_sid={x_twilio_sid}, twilio_token={x_twilio_token}, twilio_phone={x_twilio_phone}")
         if not all([x_resend_key, x_twilio_sid, x_twilio_token, x_twilio_phone]):
             raise HTTPException(status_code=400, detail="Alert API keys not configured")
 
