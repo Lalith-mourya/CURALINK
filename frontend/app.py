@@ -31,7 +31,7 @@ from components.chat import render_chat_tab
 from components.documents import render_documents_tab
 from components.patient_profile import render_profile_tab, render_sidebar_profile
 from components.doctor_dashboard import render_doctor_dashboard
-from dashboard.auth_ui import render_auth_page, render_api_configuration_sidebar, check_api_keys_configured
+from dashboard.auth_ui import render_auth_page, render_api_gateway_screen, check_api_keys_configured
 
 
 # ====================================================================== #
@@ -71,10 +71,8 @@ api_client = APIClient()
 # ====================================================================== #
 #  Gatekeeper / API Gateway check
 # ====================================================================== #
-render_api_configuration_sidebar()
-
 if not check_api_keys_configured():
-    st.warning("Please configure all API keys in the sidebar to continue")
+    render_api_gateway_screen()
     st.stop()
 
 

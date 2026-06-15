@@ -77,13 +77,6 @@ def check_api_keys_configured() -> bool:
     return all(st.session_state.api_keys.get(k) for k in required)
 
 def render_auth_page():
-    # Render API configuration sidebar on every page
-    render_api_configuration_sidebar()
-    
-    if not check_api_keys_configured():
-        st.warning("Please configure all API keys in the sidebar to continue")
-        st.stop()
-
     # Initialize auth state if not present
     if "auth_page" not in st.session_state:
         st.session_state["auth_page"] = "login"
@@ -192,6 +185,7 @@ def render_login():
         if st.button("⚙️ Reset API Gateway Configuration", use_container_width=True):
             for k in ["groq_api_key", "resend_api_key", "twilio_account_sid", "twilio_auth_token", "twilio_phone_number"]:
                 st.session_state[k] = ""
+            st.session_state.api_keys = {}
             st.rerun()
 
 def render_doctor_registration():
@@ -456,6 +450,12 @@ def render_api_gateway_screen():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # Initialize api_keys if not present
+    if "api_keys" not in st.session_state:
+        st.session_state.api_keys = {}
+        
+    api_keys = st.session_state.api_keys
+
     col1, col2, col3 = st.columns([0.8, 1.5, 0.8])
     with col2:
         # ── Credentials form ─────────────────────────────────────────────────
@@ -464,7 +464,7 @@ def render_api_gateway_screen():
             groq_key = st.text_input(
                 "Groq API Key",
                 type="password",
-                value=st.session_state.get("groq_api_key", ""),
+                value=api_keys.get("groq_key", st.session_state.get("groq_api_key", "")),
                 placeholder="gsk_...",
             )
             st.caption("🔑 Obtain from [console.groq.com](https://console.groq.com). Powers the LLM risk classifier and RAG chat responses.")
@@ -474,29 +474,38 @@ def render_api_gateway_screen():
             resend_key = st.text_input(
                 "Resend API Key",
                 type="password",
-                value=st.session_state.get("resend_api_key", ""),
+                value=api_keys.get("resend_key", st.session_state.get("resend_api_key", "")),
                 placeholder="re_...",
             )
-            st.caption("🔑 Obtain from [resend.com](https://resend.com). ⚠️ The email registered with this API key must be used as the Doctor's Email during Doctor Registration so alert emails are delivered correctly.")
+            st.caption("🔑 Obtain from [resend.com](https://resend.com).")
+
+            st.markdown("---")
+            st.markdown("##### 📧 Doctor Email")
+            doctor_email = st.text_input(
+                "Doctor Email",
+                value=api_keys.get("doctor_email", ""),
+                placeholder="doctor@example.com"
+            )
+            st.caption("⚠️ The email registered with your Resend API key must be used as the Doctor's Email so alert emails are delivered correctly.")
 
             st.markdown("---")
             st.markdown("##### 📞 Twilio")
             twilio_sid = st.text_input(
                 "Twilio Account SID",
-                value=st.session_state.get("twilio_account_sid", ""),
+                value=api_keys.get("twilio_sid", st.session_state.get("twilio_account_sid", "")),
                 placeholder="AC...",
             )
             st.caption("Found in your Twilio console dashboard under Account Info.")
             twilio_token = st.text_input(
                 "Twilio Auth Token",
                 type="password",
-                value=st.session_state.get("twilio_auth_token", ""),
+                value=api_keys.get("twilio_token", st.session_state.get("twilio_auth_token", "")),
                 placeholder="Auth token from Twilio console",
             )
             st.caption("Found next to your Account SID in the Twilio console.")
             twilio_num = st.text_input(
-                "Twilio Phone Number  (international format)",
-                value=st.session_state.get("twilio_phone_number", ""),
+                "Twilio Phone Number (international format)",
+                value=api_keys.get("twilio_phone", st.session_state.get("twilio_phone_number", "")),
                 placeholder="+12025551234",
             )
             st.caption("Enter the virtual international number Twilio assigned to your account (e.g. +1…). ⚠️ When registering as a Doctor, use the same mobile number you verified in Twilio — calls will be forwarded to that verified number.")
@@ -507,14 +516,23 @@ def render_api_gateway_screen():
             )
 
             if submit_button:
-                if not groq_key or not resend_key or not twilio_sid or not twilio_token or not twilio_num:
+                if not groq_key or not resend_key or not doctor_email or not twilio_sid or not twilio_token or not twilio_num:
                     st.error("All fields are required. Please fill in every credential before proceeding.")
                 else:
+                    st.session_state.api_keys = {
+                        "groq_key": groq_key.strip(),
+                        "resend_key": resend_key.strip(),
+                        "twilio_sid": twilio_sid.strip(),
+                        "twilio_token": twilio_token.strip(),
+                        "twilio_phone": twilio_num.strip(),
+                        "doctor_email": doctor_email.strip()
+                    }
                     st.session_state["groq_api_key"] = groq_key.strip()
                     st.session_state["resend_api_key"] = resend_key.strip()
                     st.session_state["twilio_account_sid"] = twilio_sid.strip()
                     st.session_state["twilio_auth_token"] = twilio_token.strip()
                     st.session_state["twilio_phone_number"] = twilio_num.strip()
+                    
                     st.success("✅ API credentials saved. Redirecting to login…")
                     time.sleep(0.5)
                     st.rerun()
