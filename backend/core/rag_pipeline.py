@@ -19,7 +19,6 @@ from typing import List, Optional
 
 import chromadb
 from groq import Groq
-from sentence_transformers import SentenceTransformer
 
 from core.config import get_settings
 
