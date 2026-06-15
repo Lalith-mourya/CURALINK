@@ -99,7 +99,7 @@ async def chat(
 
         if not x_groq_key:
             raise HTTPException(status_code=400, detail="API keys not configured")
-        if not all([x_resend_key, x_twilio_sid, x_twilio_token, x_twilio_phone, x_doctor_email]):
+        if not all([x_resend_key, x_twilio_sid, x_twilio_token, x_twilio_phone]):
             raise HTTPException(status_code=400, detail="Alert API keys not configured")
 
         # Step 1: Security Guard against prompt injections / DB enumeration / role impersonation

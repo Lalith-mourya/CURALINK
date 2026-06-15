@@ -53,7 +53,7 @@ class APIClient:
             raise ValueError("API keys not configured")
             
         api_keys = st.session_state.api_keys
-        required_keys = ["groq_key", "resend_key", "twilio_sid", "twilio_token", "twilio_phone", "doctor_email"]
+        required_keys = ["groq_key", "resend_key", "twilio_sid", "twilio_token", "twilio_phone"]
         if not all(api_keys.get(k) for k in required_keys):
             raise ValueError("API keys not configured")
             
@@ -64,7 +64,8 @@ class APIClient:
             headers["x-twilio-sid"] = api_keys.get("twilio_sid", "")
             headers["x-twilio-token"] = api_keys.get("twilio_token", "")
             headers["x-twilio-phone"] = api_keys.get("twilio_phone", "")
-            headers["x-doctor-email"] = api_keys.get("doctor_email", "")
+            if api_keys.get("doctor_email"):
+                headers["x-doctor-email"] = api_keys.get("doctor_email")
             
             # Custom Session Headers
             if "role" in st.session_state and st.session_state["role"]:

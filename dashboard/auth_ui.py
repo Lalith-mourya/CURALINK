@@ -73,7 +73,7 @@ def render_api_configuration_sidebar():
 def check_api_keys_configured() -> bool:
     if "api_keys" not in st.session_state or not st.session_state.api_keys:
         return False
-    required = ["groq_key", "resend_key", "twilio_sid", "twilio_token", "twilio_phone", "doctor_email"]
+    required = ["groq_key", "resend_key", "twilio_sid", "twilio_token", "twilio_phone"]
     return all(st.session_state.api_keys.get(k) for k in required)
 
 def render_auth_page():
@@ -480,15 +480,6 @@ def render_api_gateway_screen():
             st.caption("🔑 Obtain from [resend.com](https://resend.com).")
 
             st.markdown("---")
-            st.markdown("##### 📧 Doctor Email")
-            doctor_email = st.text_input(
-                "Doctor Email",
-                value=api_keys.get("doctor_email", ""),
-                placeholder="doctor@example.com"
-            )
-            st.caption("⚠️ The email registered with your Resend API key must be used as the Doctor's Email so alert emails are delivered correctly.")
-
-            st.markdown("---")
             st.markdown("##### 📞 Twilio")
             twilio_sid = st.text_input(
                 "Twilio Account SID",
@@ -516,7 +507,7 @@ def render_api_gateway_screen():
             )
 
             if submit_button:
-                if not groq_key or not resend_key or not doctor_email or not twilio_sid or not twilio_token or not twilio_num:
+                if not groq_key or not resend_key or not twilio_sid or not twilio_token or not twilio_num:
                     st.error("All fields are required. Please fill in every credential before proceeding.")
                 else:
                     st.session_state.api_keys = {
@@ -524,8 +515,7 @@ def render_api_gateway_screen():
                         "resend_key": resend_key.strip(),
                         "twilio_sid": twilio_sid.strip(),
                         "twilio_token": twilio_token.strip(),
-                        "twilio_phone": twilio_num.strip(),
-                        "doctor_email": doctor_email.strip()
+                        "twilio_phone": twilio_num.strip()
                     }
                     st.session_state["groq_api_key"] = groq_key.strip()
                     st.session_state["resend_api_key"] = resend_key.strip()
