@@ -21,8 +21,6 @@ PATIENTS_DIR = os.getenv("PATIENTS_DIR", "./data/patients")
 
 def get_db_connection() -> sqlite3.Connection:
     """Get a new SQLite database connection with row_factory enabled."""
-    abs_path = os.path.abspath(DB_PATH)
-    print(f"[DB_CONNECTION] Connecting to: {abs_path}")
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL;")

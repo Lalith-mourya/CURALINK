@@ -155,9 +155,7 @@ async def get_patient_profile_details(
         raise HTTPException(status_code=400, detail="Doctor ID header missing")
 
     try:
-        print(f"[DEBUG] get_patient_profile_details phone={repr(phone)} x_user_phone={repr(x_user_phone)} x_user_role={repr(x_user_role)}")
         profile = patient_service.get_patient_by_phone(phone)
-        print(f"[DEBUG] profile found: {profile is not None}")
         if not profile:
             raise HTTPException(status_code=404, detail="Patient profile not found")
 
