@@ -1,0 +1,677 @@
+/* ============================================================
+   Healthcare Assistant — Custom Premium Stylesheet
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+
+    /* High-End Dark Palette */
+    --bg-app: #030712;
+    --bg-sidebar: #090e1a;
+    --bg-card: rgba(17, 24, 39, 0.65);
+    --bg-card-hover: rgba(31, 41, 55, 0.85);
+
+    /* Gradients */
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+    --primary-glow: rgba(99, 102, 241, 0.2);
+    
+    /* Branding Colors */
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    
+    --safe: #10b981;
+    --safe-glow: rgba(16, 185, 129, 0.2);
+    --safe-bg: rgba(16, 185, 129, 0.08);
+    
+    --unclear: #f59e0b;
+    --unclear-glow: rgba(245, 158, 11, 0.2);
+    --unclear-bg: rgba(245, 158, 11, 0.08);
+    
+    --risky: #ef4444;
+    --risky-glow: rgba(239, 68, 68, 0.3);
+    --risky-bg: rgba(239, 68, 68, 0.08);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.16);
+
+    --radius: 16px;
+    --radius-sm: 10px;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Core Global Layout ---------- */
+html, body, [class*="css"], .stApp {
+    font-family: var(--font-sans) !important;
+    background-color: var(--bg-app) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ---------- Keyframe Animations ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.45); }
+    100% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.2); }
+}
+
+@keyframes pulse-glow-red {
+    0% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.2); }
+    50% { box-shadow: 0 0 22px rgba(239, 68, 68, 0.5); }
+    100% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.2); }
+}
+
+@keyframes pulse-glow-green {
+    0% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.2); }
+    50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.5); }
+    100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.2); }
+}
+
+@keyframes shimmer-text {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+/* ---------- Premium Text Styles ---------- */
+.premium-glow-text {
+    background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6, #818cf8);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-text 6s linear infinite;
+    font-weight: 800;
+}
+
+/* ---------- Glassmorphism Cards ---------- */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 12px 0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: var(--transition);
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+/* ---------- Medical Disclaimer ---------- */
+.disclaimer-banner {
+    background: rgba(99, 102, 241, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius-sm);
+    padding: 16px 22px;
+    margin-bottom: 24px;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.disclaimer-banner strong {
+    color: var(--primary-light);
+    font-style: normal;
+}
+
+/* ---------- Risk Badges ---------- */
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.risk-safe {
+    background: var(--safe-bg);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.risk-safe:hover {
+    background: rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+.risk-unclear {
+    background: var(--unclear-bg);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.risk-unclear:hover {
+    background: rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+.risk-risky {
+    background: var(--risky-bg);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    animation: pulse-glow-red 2s ease-in-out infinite;
+}
+
+.risk-risky:hover {
+    background: rgba(239, 68, 68, 0.16);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ---------- Emergency Banner ---------- */
+.emergency-banner {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 30px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.emergency-banner .emergency-icon {
+    font-size: 1.5rem;
+    margin: 0 8px;
+}
+
+.emergency-banner .emergency-sub {
+    font-size: 0.88rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 8px;
+}
+
+/* ---------- Escalation Status Card ---------- */
+.escalation-status {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin: 16px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.escalation-status h4 {
+    margin: 0 0 16px 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: var(--transition);
+}
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.status-item:hover {
+    color: var(--text-primary);
+    padding-left: 6px;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.status-item .status-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.status-item .status-text {
+    flex: 1;
+}
+
+.status-item .status-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+}
+
+/* ---------- Patient Profile Card ---------- */
+.patient-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 12px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.patient-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(99, 102, 241, 0.08);
+    transform: translateY(-2px);
+}
+
+.patient-card h3 {
+    margin: 0 0 20px 0;
+    color: var(--primary-light);
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.patient-card .profile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.patient-card .profile-field:hover {
+    background: rgba(255, 255, 255, 0.01);
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.patient-card .profile-field:last-child {
+    border-bottom: none;
+}
+
+.patient-card .field-label {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.patient-card .field-value {
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: right;
+    max-width: 65%;
+}
+
+/* ---------- Metrics Sidebar / Dashboard ---------- */
+.metric-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 8px 0;
+    transition: var(--transition);
+}
+
+.metric-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(99, 102, 241, 0.05);
+}
+
+.metric-card .metric-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.metric-card .metric-value {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* ---------- Chat Timeline & Details ---------- */
+.chat-timestamp {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 6px;
+    opacity: 0.8;
+}
+
+/* ---------- Custom Scrollbars ---------- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 9999px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Documents Files Cards ---------- */
+.document-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--transition);
+}
+
+.document-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+    transform: translateX(6px) translateY(-1px);
+    background: var(--bg-card-hover);
+}
+
+.document-card .doc-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.document-card:hover .doc-icon {
+    transform: scale(1.1);
+}
+
+.document-card .doc-info {
+    flex: 1;
+}
+
+.document-card .doc-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.document-card .doc-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+/* ---------- Sidebar custom overrides ---------- */
+section[data-testid="stSidebar"] {
+    background: var(--bg-sidebar) !important;
+    border-right: 1px solid var(--border-color) !important;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+section[data-testid="stSidebar"] .stMarkdown h1 {
+    font-size: 1.45rem;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 5px;
+}
+
+/* ---------- Premium Form Elements ---------- */
+.stForm {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius) !important;
+    padding: 32px !important;
+    background: rgba(17, 24, 39, 0.6) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4) !important;
+    transition: var(--transition) !important;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.stForm:hover {
+    border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Forms text inputs */
+div[data-testid="stTextInput"] input, div[data-testid="stTextArea"] textarea, div[data-testid="stNumberInput"] input {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+    transition: var(--transition) !important;
+}
+
+div[data-testid="stTextInput"] input:focus, div[data-testid="stTextArea"] textarea:focus, div[data-testid="stNumberInput"] input:focus {
+    border-color: var(--primary-light) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Buttons styling overrides */
+div.stButton > button, div[data-testid="stFormSubmitButton"] > button {
+    font-family: var(--font-sans) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    padding: 10px 24px !important;
+    transition: var(--transition) !important;
+}
+
+/* Primary Button Styling */
+div.stButton > button[kind="primary"], div[data-testid="stFormSubmitButton"] > button[kind="primary"] {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35) !important;
+    animation: pulse-glow 3s infinite;
+}
+
+div.stButton > button[kind="primary"]:hover, div[data-testid="stFormSubmitButton"] > button[kind="primary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.55), 0 0 15px rgba(217, 70, 239, 0.3) !important;
+}
+
+div.stButton > button[kind="primary"]:active, div[data-testid="stFormSubmitButton"] > button[kind="primary"]:active {
+    transform: translateY(0) !important;
+}
+
+/* Secondary Button Styling */
+div.stButton > button[kind="secondary"], div[data-testid="stFormSubmitButton"] > button[kind="secondary"] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+div.stButton > button[kind="secondary"]:hover, div[data-testid="stFormSubmitButton"] > button[kind="secondary"]:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--border-hover) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ---------- Tabs Styling ---------- */
+button[data-baseweb="tab"] {
+    font-family: var(--font-sans) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase;
+    color: var(--text-muted) !important;
+    padding: 12px 24px !important;
+    border-bottom: 2px solid transparent !important;
+    transition: var(--transition) !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    color: var(--primary-light) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--primary-light) !important;
+    border-bottom-color: var(--primary) !important;
+}
+
+/* ---------- Chat Messages overrides ---------- */
+div[data-testid="stChatMessage"] {
+    background: rgba(255, 255, 255, 0.015) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius) !important;
+    padding: 16px 20px !important;
+    margin-bottom: 16px !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+div[data-testid="stChatMessage"]:hover {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.15) !important;
+}
+
+/* User Message bubble styling (light green tint or slate border) */
+div[data-testid="stChatMessage"][data-is-user="true"] {
+    border-left: 4px solid var(--primary) !important;
+}
+
+/* Assistant Message bubble styling */
+div[data-testid="stChatMessage"][data-is-user="false"] {
+    border-left: 4px solid var(--safe) !important;
+}
+
+/* ---------- Welcome Container ---------- */
+.welcome-container {
+    text-align: center;
+    padding: 80px 24px;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-container .welcome-icon {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    animation: pulse-glow 4s infinite;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.welcome-container h2 {
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 1.85rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.welcome-container p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ---------- System Health Dots ---------- */
+.health-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.88rem;
+}
+
+.health-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.health-dot.online {
+    background: var(--safe);
+    animation: pulse-glow-green 2s ease-in-out infinite;
+}
+
+.health-dot.offline {
+    background: var(--risky);
+    animation: pulse-glow-red 2s ease-in-out infinite;
+}
+
+/* ---------- Log Entry Items ---------- */
+.log-entry {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 10px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.log-entry:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+/* ---------- General Helpers ---------- */
+.custom-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+.app-footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 20px 0 10px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 30px;
+}
+

@@ -1,0 +1,29 @@
+CLINICAL DISCHARGE SUMMARY & CARE PLAN — EDWARD CHEN (AGE 72)
+Diagnosis: Congestive Heart Failure (NYHA Class III), Type 2 Diabetes Mellitus, Stage 3 Chronic Kidney Disease.
+
+Section 1: Complex Medication Scheduling & Spacing Rules
+1. Carvedilol (Beta-Blocker): Take 6.25 mg twice daily (once with breakfast at 8:00 AM, once with dinner at 6:00 PM). Must be taken with food to slow absorption rate and reduce the risk of orthostatic hypotension.
+2. Furosemide (Loop Diuretic): Take 40 mg once daily in the morning at 8:00 AM. Do NOT take Furosemide after 4:00 PM to prevent nocturia (nighttime urination).
+3. Potassium Chloride: Take 20 mEq once daily at 12:00 PM (lunchtime). Must be taken with meals and a full glass of water to avoid gastric irritation.
+4. Metformin: Take 1000 mg twice daily with meals (8:00 AM and 6:00 PM). Monitor eGFR.
+5. Jardiance (Empagliflozin): Take 10 mg once daily in the morning at 8:00 AM. 
+CRITICAL SPACING: Furosemide and Jardiance both increase urination. Space fluid intake evenly throughout the day, strictly keeping to the 1.5-liter total daily fluid limit.
+
+Section 2: Daily Symptom & Weight Tracking
+- Daily Weight Check: Weigh yourself every morning after your first urination, before breakfast, wearing similar clothing. Record this weight in your log.
+- Fluid Restrictions: Keep total fluid intake (including water, coffee, tea, soup, gelatin) under 1.5 Liters (1500 mL) per 24 hours.
+
+Section 3: Urgent Warning Signs and Action Thresholds
+- Yellow Zone (Notify Dr. Vance's office within 24 hours):
+  * Weight gain of 3 pounds (1.4 kg) in 1 day, OR 5 pounds (2.3 kg) in 1 consecutive week (indicates fluid retention).
+  * Increased swelling (edema) in your ankles, feet, or legs.
+  * Increased coughing, especially when lying down.
+  * Blood sugar readings consistently above 220 mg/dL for more than 48 hours.
+
+- Red Zone (Emergency — Call 911 immediately; system will trigger alerts):
+  * Severe shortness of breath (dyspnea) at rest, or feeling like you are choking.
+  * Chest pain, tightness, or pressure in the center of the chest.
+  * Weight gain of more than 5 pounds in a single 24-hour period.
+  * Spitting up pink, frothy sputum (sign of acute pulmonary edema).
+  * Severe dizziness, fainting spells, or loss of consciousness.
+* not getting sleep too

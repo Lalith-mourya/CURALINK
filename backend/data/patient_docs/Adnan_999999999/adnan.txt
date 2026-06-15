@@ -1,0 +1,65 @@
+PATIENT MEDICAL REPORT
+Chief Complaint:
+Patient reports severe throbbing headache on the left side of the head for the past 3 days. The headache is associated with nausea, sensitivity to bright light (photophobia), and occasional dizziness.
+
+Medical History:
+
+* Migraine diagnosed in 2023
+* Hypertension diagnosed in 2022
+* No history of stroke
+* No history of epilepsy
+
+Current Medications:
+
+* Amlodipine 5mg once daily
+* Sumatriptan 50mg as needed for migraine
+* Paracetamol 650mg as needed
+
+Allergies:
+
+* Penicillin
+
+Vital Signs:
+Blood Pressure: 160/100 mmHg
+Heart Rate: 92 bpm
+Respiratory Rate: 18 breaths/min
+Temperature: 98.6°F
+Oxygen Saturation: 98%
+
+Physical Examination:
+
+* Patient alert and oriented
+* Pupils equal and reactive to light
+* No motor weakness observed
+* No speech abnormalities
+* Mild sensitivity to light noted
+
+Laboratory Results:
+Complete Blood Count (CBC): Normal
+Blood Glucose: 102 mg/dL
+Serum Creatinine: 0.9 mg/dL
+
+Doctor Assessment:
+The symptoms are consistent with a severe migraine attack. Elevated blood pressure may be contributing to symptom severity. No immediate signs of stroke or neurological deficit were observed during examination.
+
+Diagnosis:
+
+1. Migraine with photophobia
+2. Essential hypertension
+
+Treatment Plan:
+
+* Continue Amlodipine 5mg daily
+* Sumatriptan during migraine episodes
+* Adequate hydration
+* Reduce screen exposure
+* Follow-up after 7 days
+
+Emergency Warning Signs:
+Patient should seek immediate medical attention if any of the following occur:
+
+* Sudden loss of vision
+* Difficulty speaking
+* Weakness on one side of the body
+* Loss of consciousness
+* Severe headache unlike previous migraine episodes

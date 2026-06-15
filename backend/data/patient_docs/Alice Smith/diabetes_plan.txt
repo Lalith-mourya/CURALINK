@@ -1,0 +1,7 @@
+Patient Care Document: Bob Jones (Type 2 Diabetes Management)
+
+Daily Guidelines:
+1. Medication: Take Metformin 500mg twice daily with meals (breakfast and dinner) to reduce stomach upset. Take Atorvastatin 20mg once daily at bedtime.
+2. Blood Sugar Monitoring: Test fasting blood glucose every morning before eating. Target range is 80-130 mg/dL.
+3. Hypoglycemia (Low Blood Sugar): If blood sugar drops below 70 mg/dL, eat 15 grams of fast-acting carbs (e.g., 4 ounces of fruit juice or 3-4 glucose tablets). Re-test in 15 minutes.
+4. Warnings: If blood sugar exceeds 250 mg/dL twice in a row or if you experience unexplained vomiting, notify Dr. Mercer's office immediately.

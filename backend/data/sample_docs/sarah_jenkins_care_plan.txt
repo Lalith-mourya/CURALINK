@@ -1,0 +1,33 @@
+CLINICAL DISCHARGE SUMMARY & CARE PLAN — SARAH JENKINS (AGE 68)
+Diagnosis: Post-Myocardial Infarction, Heart Failure (NYHA Class II), Severe Persistent Asthma, Chronic Atrial Fibrillation.
+
+Section 1: Complex Medication Spacing & Timing Rules
+1. Warfarin (Anticoagulant): Take 5 mg once daily strictly at 6:00 PM on an empty stomach (at least 1 hour before or 2 hours after dinner).
+   - DO NOT skip doses.
+   - Keep Vitamin K intake (spinach, kale, broccoli, brussels sprouts) stable and consistent day-to-day.
+   - DO NOT drink cranberry juice or grapefruit juice as they interact with Warfarin.
+2. Carvedilol (Beta-Blocker): Take 12.5 mg twice daily with meals (8:00 AM breakfast and 7:00 PM dinner).
+   - Crucial: Space at least 2 hours apart from the Symbicort inhaler.
+3. Symbicort Inhaler (Budesonide/Formoterol): 2 puffs twice daily (8:00 AM and 8:00 PM).
+   - ALWAYS rinse mouth with warm water and spit it out after use to prevent oral thrush (candidiasis).
+4. Albuterol Rescue Inhaler: 2 puffs every 4 to 6 hours as needed for sudden wheezing or shortness of breath.
+5. Spiriva (Tiotropium): 1 capsule inhaled via HandiHaler once daily at 10:00 AM. Do NOT swallow the capsule.
+
+Section 2: Daily Vital Sign Monitoring
+- Blood Pressure & Heart Rate: Measure twice daily (morning before medications and evening). Do not take Carvedilol if systolic BP is under 90 mmHg or heart rate is under 55 bpm; contact the clinic immediately if so.
+- Peak Flow Meter: Check asthma peak flow every morning before using inhalers.
+  * Personal Best Peak Flow: 400 L/min.
+
+Section 3: Clinical Warning Zones & Action Thresholds
+- Green Zone (Doing Well):
+  * BP: 100/60 to 135/85 mmHg. Heart Rate: 60-80 bpm. Peak Flow: 320–400 L/min.
+- Yellow Zone (Call Dr. Vance's Clinic at 555-019-2831 within 24 hours):
+  * Peak Flow drop between 200 and 320 L/min (50%-80% of personal best).
+  * Unexplained bruising or minor, self-limiting nosebleeds (Warfarin risk).
+  * Heart rate consistently below 50 bpm or above 100 bpm at rest.
+  * Mild ankle swelling or weight gain of 3 lbs in 24 hours.
+- Red Zone (CRITICAL EMERGENCY - CALL 911 IMMEDIATELY):
+  * Spontaneous, uncontrolled bleeding (e.g., severe nosebleed, coughing up blood, dark tarry stools, or blood in urine).
+  * Peak Flow below 200 L/min (less than 50% of personal best), or unresponsive to rescue inhaler.
+  * Severe shortness of breath, inability to speak in full sentences, or chest pressure/tightness.
+  * Sudden weakness, facial drooping, or difficulty speaking (Stroke warning signs).

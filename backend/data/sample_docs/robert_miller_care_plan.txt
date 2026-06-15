@@ -1,0 +1,27 @@
+CLINICAL DISCHARGE SUMMARY & CARE PLAN — ROBERT MILLER (AGE 78)
+Diagnosis: Parkinson's Disease (Hoehn and Yahr Stage III), Type 2 Diabetes Mellitus (insulin-dependent), Resistant Hypertension, Chronic Dysphagia (swallowing difficulty).
+
+Section 1: Complex Medication Spacing & Timing Rules
+1. Carbidopa/Levodopa (Sinemet) 25/100 mg: Take 1 tablet 4 times daily at 7:00 AM, 11:00 AM, 3:00 PM, and 7:00 PM.
+   - CRITICAL DIETARY RESTRICTION: Take strictly 30 minutes before or 1 hour after meals. Avoid eating high-protein meals (meat, eggs, cheese, yogurt) at the same time, as dietary protein significantly blocks Levodopa absorption, leading to severe "off" periods (freezing, rigidity).
+2. Lisinopril (ACE Inhibitor): Take 20 mg once daily at 9:00 AM.
+   - SPACING REQUIREMENT: Must space at least 2 hours apart from any calcium carbonate supplements or antacids, as they decrease Lisinopril absorption.
+3. Calcium Carbonate (Supplement): Take 500 mg twice daily with lunch (12:00 PM) and dinner (6:00 PM) to aid swallowing and absorption.
+4. Lantus (Insulin Glargine): Inject 15 units subcutaneously once daily at 9:00 PM.
+5. Novolog (Insulin Aspart): Inject sliding scale insulin subcutaneously immediately before meals (7:30 AM, 11:30 AM, 5:30 PM).
+
+Section 2: Special Instructions for Dysphagia & Administration
+- Food Consistency: All meals must be pureed or finely chopped. All liquids must be thickened to honey-like consistency using commercial thickener.
+- Pill Administration: Since patient has dysphagia, Carbidopa/Levodopa tablets may be crushed and mixed with applesauce, but they must NOT be mixed with protein-rich food (like yogurt or pudding).
+
+Section 3: Urgent Warning Zones & Action Thresholds
+- Yellow Zone (Notify Dr. Vance's office within 24 hours):
+  * Blood glucose levels consistently above 250 mg/dL or below 80 mg/dL.
+  * Increased difficulty swallowing or coughing during meals.
+  * Significant increase in resting tremors or rigidity causing difficulty in performing daily tasks.
+  * Blood pressure systolic above 160 mmHg or diastolic above 95 mmHg.
+- Red Zone (Emergency — Call 911 immediately):
+  * Active choking episode or complete inability to swallow saliva.
+  * Blood glucose level below 55 mg/dL (severe hypoglycemia) accompanied by confusion, sweating, or loss of coordination.
+  * Hypertensive Crisis: Blood pressure reading exceeding 180 mmHg systolic OR 120 mmHg diastolic, or accompanied by severe headache, chest pain, or vision changes.
+  * Fainting or sudden loss of motor control leading to a fall.

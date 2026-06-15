@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: clinical-bot-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: DB_PATH
+        value: /data/incidents.db
+      - key: CHROMA_PATH
+        value: /data/chroma_store
+      - key: PATIENTS_DIR
+        value: /data/patients
+    disk:
+      name: clinical-bot-data
+      mountPath: /data
+      sizeGB: 1
+
+  - type: web
+    name: clinical-bot-frontend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run dashboard/auth_ui.py --server.port 10000 --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        sync: false

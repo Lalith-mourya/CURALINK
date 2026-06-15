@@ -1,0 +1,8 @@
+Patient Care Document: Alice Smith (Hypertension Management)
+
+Daily Guidelines:
+1. Medication: Take Lisinopril 10mg once daily in the morning with a full glass of water. Take Hydrochlorothiazide 25mg once daily at lunchtime.
+2. Blood Pressure Monitoring: Check blood pressure twice daily—once in the morning and once in the evening. Record all readings.
+3. Diet: Maintain a low-sodium diet (under 1,500 mg of sodium per day). Avoid processed foods, canned soups, and pickles.
+4. Warnings: Call the office immediately if your systolic blood pressure is over 160 mmHg or if your diastolic blood pressure is over 100 mmHg.
+5. In case of mild dizziness when standing up, sit back down immediately and rest.

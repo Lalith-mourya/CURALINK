@@ -1,0 +1,34 @@
+# ═══════════════════════════════════════════════════════════════
+# Healthcare Patient-Support Chatbot — All Dependencies
+# ═══════════════════════════════════════════════════════════════
+# Install: pip install -r requirements.txt
+
+# ─── Backend (FastAPI) ────────────────────────────────────────
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-dotenv
+python-multipart
+bcrypt
+groq
+
+# ─── RAG Pipeline ─────────────────────────────────────────────
+chromadb
+sentence-transformers
+ollama
+
+# ─── Document Processing ──────────────────────────────────────
+PyPDF2
+python-docx
+
+# ─── Email ────────────────────────────────────────────────────
+# (built-in: smtplib, email, ssl)
+
+# ─── Telephony ────────────────────────────────────────────────
+twilio
+
+# ─── Frontend (Streamlit) ─────────────────────────────────────
+streamlit
+requests
+pandas
+

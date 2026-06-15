@@ -1,0 +1,12 @@
+.env
+incidents.db
+chroma_store/
+data/patients/*.json
+__pycache__/
+*.pyc
+.DS_Store
+*.db
+.venv/
+venv/
+.vscode/
+.idea/

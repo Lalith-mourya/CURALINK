@@ -1,0 +1,8 @@
+Patient: Alice Smith
+Condition: Hypertension
+Treatment Plan:
+1. Take Lisinopril 10mg once daily in the morning.
+2. Monitor blood pressure daily and record it.
+3. Call the clinic if systolic BP exceeds 160 or diastolic exceeds 100.
+4. Avoid high-sodium foods and processed meats.
+5. In case of dizziness, sit down immediately.
