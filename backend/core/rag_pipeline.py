@@ -32,7 +32,7 @@ PATIENTS_DIR = os.getenv("PATIENTS_DIR", "./data/patients")
 # ---------------------------------------------------------------------------
 _chroma_client: Optional[chromadb.ClientAPI] = None
 _collection: Optional[chromadb.Collection] = None
-_embedding_model: Optional[SentenceTransformer] = None
+_local_model = None
 
 COLLECTION_NAME = 'patient_docs'
 
@@ -46,13 +46,45 @@ RAG_SYSTEM_PROMPT = (
     "Always recommend consulting the doctor for important decisions."
 )
 
+def get_embeddings(texts: List[str]) -> List[List[float]]:
+    """Get embeddings using Hugging Face Inference API, falling back to local SentenceTransformer if needed."""
+    api_url = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
+    headers = {"Content-Type": "application/json"}
+    hf_token = os.getenv("HF_TOKEN")
+    if hf_token:
+        headers["Authorization"] = f"Bearer {hf_token}"
+    
+    payload = {"inputs": texts, "options": {"wait_for_model": True}}
+    try:
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(api_url, data=data, headers=headers, method="POST")
+        import urllib.error
+        with urllib.request.urlopen(req, timeout=12) as response:
+            res_body = response.read().decode("utf-8")
+            res_json = json.loads(res_body)
+            if isinstance(res_json, list) and len(res_json) > 0:
+                if isinstance(res_json[0], float):
+                    return [res_json]
+                elif isinstance(res_json[0], list):
+                    return res_json
+    except Exception as e:
+        print(f"[RAG] HF Inference API failed: {e}. Falling back to local SentenceTransformer.")
+
+    # Local fallback
+    global _local_model
+    if _local_model is None:
+        print("[RAG] Loading local SentenceTransformer model (fallback)...")
+        from sentence_transformers import SentenceTransformer
+        _local_model = SentenceTransformer(get_settings().EMBEDDING_MODEL)
+    return _local_model.encode(texts).tolist()
+
 
 # ---------------------------------------------------------------------------
 # Initialisation
 # ---------------------------------------------------------------------------
 def init_rag() -> None:
-    """Initialise ChromaDB persistent client and the embedding model."""
-    global _chroma_client, _collection, _embedding_model
+    """Initialise ChromaDB persistent client."""
+    global _chroma_client, _collection
 
     settings = get_settings()
 
@@ -61,10 +93,8 @@ def init_rag() -> None:
 
     _chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
     _collection = _chroma_client.get_or_create_collection(name=COLLECTION_NAME)
-    _embedding_model = SentenceTransformer(settings.EMBEDDING_MODEL)
 
     print(f"[RAG] ChromaDB initialised at {settings.CHROMA_PERSIST_DIR}")
-    print(f"[RAG] Embedding model '{settings.EMBEDDING_MODEL}' loaded.")
 
 
 def get_chroma_client() -> Optional[chromadb.ClientAPI]:
@@ -114,7 +144,7 @@ def ingest_document(file_path: str, patient_name: str, patient_phone: str, doc_t
 
     Returns the number of chunks indexed.
     """
-    if _collection is None or _embedding_model is None:
+    if _collection is None:
         raise RuntimeError("RAG pipeline not initialised. Call init_rag() first.")
 
     text = _read_file(file_path)
@@ -125,7 +155,7 @@ def ingest_document(file_path: str, patient_name: str, patient_phone: str, doc_t
     if not chunks:
         return 0
 
-    embeddings = _embedding_model.encode(chunks).tolist()
+    embeddings = get_embeddings(chunks)
     upload_date = datetime.utcnow().isoformat()
     filename = os.path.basename(file_path)
 
@@ -161,11 +191,11 @@ def query_documents(query: str, patient_phone: str, n_results: int = 3) -> List[
     Embed the *query*, search ChromaDB filtered by *patient_phone*, and return
     the most relevant document chunks.
     """
-    if _collection is None or _embedding_model is None:
+    if _collection is None:
         print("[RAG] Pipeline not initialised — returning empty results.")
         return []
 
-    query_embedding = _embedding_model.encode([query]).tolist()
+    query_embedding = get_embeddings([query])
 
     try:
         results = _collection.query(
